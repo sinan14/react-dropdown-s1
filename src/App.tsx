@@ -2,8 +2,11 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
+  // conditon for making dropdown open/close
   const [dropdownOpen, setDropDownOpen] = useState(false);
+  // list items for showing in dropdown
   const list = ["Yes", "Probably not"];
+  // variable to store selected item
   const [selectedItem, setSelectedItem] = useState("");
 
   const onSelectItem = (item: string) => {
@@ -21,6 +24,7 @@ function App() {
         >
           <span>{selectedItem ? selectedItem : "Select"}</span>
           <span className="icon">
+            {/* conditionally show chevron icons */}
             {dropdownOpen ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -52,6 +56,7 @@ function App() {
             )}
           </span>
         </button>
+        {/* loop through list to show list icons */}
         {dropdownOpen && (
           <ul className="list">
             {list.map((item) => (
